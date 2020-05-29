@@ -1,0 +1,26 @@
+{
+    "name": "merntaskservidor",
+    "version": "1.0.0",
+    "description": "BackEnd para aplicacion de tareas de proyectos",
+    "main": "index.js",
+    "scripts": {
+        "start": "node .",
+        "dev": "nodemon ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Crusiris/MERNTaskServidor.git"
+    },
+    "author": "Crusiris Nuñez",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Crusiris/MERNTaskServidor/issues"
+    },
+    "homepage": "https://github.com/Crusiris/MERNTaskServidor#readme",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.16",
+        "nodemon": "^2.0.4"
+    }
+}
