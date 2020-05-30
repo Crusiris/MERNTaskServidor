@@ -6,6 +6,10 @@ const server = express();
 
 //Conectando a la base de datos
 conectDB();
+
+//Habilitando express.JSON
+server.use(express.json({ extended: true }));
+
 //Puerto de la app
 const PORT = process.env.PORT || 4000;
 
