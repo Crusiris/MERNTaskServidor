@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'); //Importando mongoose
 
-//Funcion para definir el modelo o estructura de la base de datos
+mongoose.set('useCreateIndex', true)
+    //Funcion para definir el modelo o estructura de la base de datos
 const UsersSchema = mongoose.Schema({
 
     name: {
