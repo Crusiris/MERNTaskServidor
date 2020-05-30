@@ -1,4 +1,5 @@
 const User = require('../models/UserModel'); //importando el modelo del usuario
+const bcryptjs = require('bcryptjs');
 
 exports.createUser = async(req, res) => {
 
@@ -11,10 +12,15 @@ exports.createUser = async(req, res) => {
 
         //Validando que el usuario/correo no exista
         if (user) {
-            return res.status(400).json({ msg: 'El usuario ya eiste' });
+            return res.status(400).json({ msg: 'El usuario ya existe' });
         }
 
-        user = new User(req.body); //Creando una nueva instancia de user
+        //Creando una nueva instancia de user
+        user = new User(req.body);
+
+        //Hasheando el password
+        const salt = await bcryptjs.genSalt(10); //Creando salt
+        user.password = await bcryptjs.hash(password, salt); //hasheando y agregando el salt
 
         //guardar usuario
         await user.save();
