@@ -9,6 +9,9 @@ conectDB();
 //Puerto de la app
 const PORT = process.env.PORT || 4000;
 
+//Importando rutas
+server.use('/api/usuarios', require('./router/user'));
+
 
 //Corriendo la app
 server.listen(PORT, () => {
