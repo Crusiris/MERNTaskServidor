@@ -14,8 +14,8 @@ server.use(express.json({ extended: true }));
 const PORT = process.env.PORT || 4000;
 
 //Importando rutas
-server.use('/api/usuarios', require('./router/user'));
-
+server.use('/api/usuarios', require('./router/user')); //registro
+server.use('/api/auth', require('./router/auth')); //autentificacion
 
 //Corriendo la app
 server.listen(PORT, () => {
