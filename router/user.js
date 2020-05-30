@@ -6,7 +6,7 @@ const { check } = require('express-validator'); //Importando funcion de validaci
 
 //Crea usuario al hacer peticion POST al ENDPOIND "api/usuarios"  
 router.post('/', [
-        check('nombre', 'El nombre es obligatorio').not().isEmpty(), //Revisando que no este vacio el campo
+        check('name', 'El nombre es obligatorio').not().isEmpty(), //Revisando que no este vacio el campo
         check('email', 'Agrega un email valido').isEmail(), //Revisando que sea un email
         check('password', 'El password debe ser minimo de 6 caracteres').isLength({ min: 6 }) //Revisando que la contraseña tena minimo 6 caracteres
     ],
