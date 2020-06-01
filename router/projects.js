@@ -14,10 +14,18 @@ router.post('/',
     projectController.createProject
 );
 
-//Crea proyectos al hacer peticion GET al ENDPOIND "api/proyectos". LLamamos a la funcion que obtiene los proyectos.
+//obtener proyectos al hacer peticion GET al ENDPOIND "api/proyectos". LLamamos a la funcion que obtiene los proyectos.
 router.get('/',
     auth,
     projectController.getProjects
+)
+
+//Actualizando proyecto via ID
+router.put('/:id',
+    auth, [
+        check('name', 'El nombre del proyecto es obligatorio').not().isEmpty() //Revisando que sea un email
+    ],
+    projectController.updateProject
 )
 
 module.exports = router;

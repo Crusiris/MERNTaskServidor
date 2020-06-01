@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+//Verifincado si el usuario esta autenticado
 module.exports = function(req, res, next) {
     //LEYENDO TOKEN
     const token = req.header('x-auth-token');
