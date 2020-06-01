@@ -26,6 +26,12 @@ router.put('/:id',
         check('name', 'El nombre del proyecto es obligatorio').not().isEmpty() //Revisando que sea un email
     ],
     projectController.updateProject
-)
+);
+
+//Eliminando proyecto via ID
+router.delete('/:id',
+    projectController.deleteProject
+);
+
 
 module.exports = router;
