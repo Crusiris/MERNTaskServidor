@@ -23,3 +23,15 @@ exports.createProject = async(req, res) => {
 
     }
 }
+
+//Obteniendo proyectos segun el usuario que este activo
+
+exports.getProjects = async(req, res) => {
+    try {
+        const project = await Project.find({ usercreate: req.user.id }).sort({ datecreate: -1 });
+        res.json({ project }); //Enviando la respuesta
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error')
+    }
+}

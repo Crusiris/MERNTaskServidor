@@ -5,7 +5,7 @@ const projectController = require('../controller/projectController'); //importan
 const auth = require('../middleware/auth');
 const { check } = require('express-validator'); //Importando funcion de validación
 
-//Crea proyectos al hacer peticion POST al ENDPOIND "api/proyectos". LLamamos a la funcion que crea el proyecto qu esta en el controllador
+//Crea proyectos al hacer peticion POST al ENDPOIND "api/proyectos". LLamamos a la funcion que crea el proyecto que esta en el controllador
 router.post('/',
     auth, [
         check('name', 'El nombre del proyecto es obligatorio').not().isEmpty() //Revisando que sea un email
@@ -14,9 +14,10 @@ router.post('/',
     projectController.createProject
 );
 
+//Crea proyectos al hacer peticion GET al ENDPOIND "api/proyectos". LLamamos a la funcion que obtiene los proyectos.
 router.get('/',
     auth,
-    projectController.createProject
+    projectController.getProjects
 )
 
 module.exports = router;
