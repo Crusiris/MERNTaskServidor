@@ -4,6 +4,9 @@ exports.createProject = async(req, res) => {
     try {
         //Creando proyecto
         const project = new Project(req.body);
+
+        //Guardando el creador via jwt
+        project.usercreate = req.user.id;
         project.save(); //Guardando la nueva instancia proyecto en BD
         res.json(project);
     } catch (error) {
