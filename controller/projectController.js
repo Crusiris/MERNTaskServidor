@@ -16,7 +16,7 @@ exports.createProject = async(req, res) => {
         //Guardando el creador via jwt
         project.usercreate = req.user.id;
         project.save(); //Guardando la nueva instancia proyecto en BD
-        res.json(project);
+        res.json(project); //Respondiendo con json de proyecto
     } catch (error) {
         console.log(error); //Imprimiendo el error en consola
         res.status(500).send('Hubo un error'); // Enviando un mensaje de error

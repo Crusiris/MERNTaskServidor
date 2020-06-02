@@ -9,9 +9,16 @@ const { check } = require('express-validator'); //Importando funcion de validaci
 router.post('/',
     auth, [
         check('name', 'El nombre de la tarea es obligatorio').not().isEmpty() //Revisando que el campo no este vacio
+        //Revisando que el campo no este vacio
     ],
 
     taskController.createTask
 );
+
+//Obtener tareas
+router.get('/',
+    auth,
+    taskController.getTask
+)
 
 module.exports = router;
