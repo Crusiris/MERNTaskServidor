@@ -15,10 +15,22 @@ router.post('/',
     taskController.createTask
 );
 
-//Obtener tareas
+//Obtener tareas //ENDPOIND "api/tareas/idProject"
 router.get('/',
     auth,
     taskController.getTask
-)
+);
+
+//Actualizar tarea  //ENDPOIND "api/tareas/id"
+router.put('/:id',
+    auth,
+    taskController.updateTask
+);
+
+//Eliminar tarea
+router.delete('/:id',
+    auth,
+    taskController.deleteTask
+);
 
 module.exports = router;
