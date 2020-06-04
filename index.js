@@ -1,11 +1,14 @@
 const express = require('express'); //importando express
 const conectDB = require('./config/db'); //importando config de mongodb
-
+const cors = require('cors');
 //Creando el servidor
 const server = express();
 
 //Conectando a la base de datos
 conectDB();
+
+//Habilitar cors
+server.use(cors());
 
 //Habilitando express.JSON
 server.use(express.json({ extended: true }));

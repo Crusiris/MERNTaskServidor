@@ -3,6 +3,8 @@ const bcryptjs = require('bcryptjs'); //Importando libreria que hashea la contra
 const { validationResult } = require('express-validator'); //importando el resultado de las validaciones
 const jwt = require('jsonwebtoken');
 
+
+//Registrando usuario
 exports.createUser = async(req, res) => {
 
     //Revisando si hay errores
@@ -12,7 +14,7 @@ exports.createUser = async(req, res) => {
     }
 
     //Destructuring del req
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     try {
 
@@ -20,7 +22,7 @@ exports.createUser = async(req, res) => {
 
         //Validando que el usuario/correo no exista
         if (user) {
-            return res.status(400).json({ msg: 'El usuario ya existe' });
+            return res.status(400).json({ msg: 'El correo ya existe' });
         }
 
         //Creando una nueva instancia de user
@@ -47,7 +49,7 @@ exports.createUser = async(req, res) => {
             if (error) throw error;
 
             //Mensaje de confirmacio
-            res.status(400).json({ token });
+            res.status(200).json({ token });
 
         })
 
