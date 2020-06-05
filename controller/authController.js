@@ -3,6 +3,8 @@ const bcryptjs = require('bcryptjs'); //Importando libreria que hashea la contra
 const { validationResult } = require('express-validator'); //importando el resultado de las validaciones
 const jwt = require('jsonwebtoken');
 
+
+//Inicio de sesion
 exports.authUser = async(req, res) => {
 
     //Revisando si hay errores
@@ -14,13 +16,18 @@ exports.authUser = async(req, res) => {
     //Destructuring
     const { email, password } = req.body;
     try {
+        //Obteniendo usuario a traves del correo unico
         let user = await User.findOne({ email });
+
+        //En caso de que el correo no exista, entonces el usuario no esta registrado
         if (!user) {
             return res.status(400).json({ msg: 'El usuario no existe' })
         }
 
-        //Verificando el password
+        //Verificando el password. El password ingresado debe ser igual al password guardado en BD
         const passCorrect = await bcryptjs.compare(password, user.password);
+
+        //Si el password es diferente entonces no se guarda el password
         if (!passCorrect) {
             return res.status(400).json({ msg: 'El password es incorrecto' })
         }
@@ -40,7 +47,7 @@ exports.authUser = async(req, res) => {
             if (error) throw error;
 
             //Mensaje de confirmacio
-            res.status(400).json({ token });
+            res.status(200).json({ token });
 
         })
 
