@@ -53,7 +53,8 @@ exports.authUser = async(req, res) => {
 //Obteniendo al usuario autenticado
 exports.userAuth = async(req, res) => {
     try {
-        const user = await User.findById(req.user.id);
+        //.select es para omitir datos que no queremos, en este caso el password del usuario es una informacion sensible y privada
+        const user = await User.findById(req.user.id).select('-password');
         res.json({ user });
     } catch (error) {
         console.log(error);
