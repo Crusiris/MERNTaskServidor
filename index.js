@@ -7,7 +7,7 @@ const server = express();
 //Conectando a la base de datos
 conectDB();
 
-//Habilitar cors
+//Habilitar cors para poder compartir informacion entre dominios diferentes
 server.use(cors());
 
 //Habilitando express.JSON
