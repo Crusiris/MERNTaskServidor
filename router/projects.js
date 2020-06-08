@@ -30,6 +30,7 @@ router.put('/:id',
 
 //Eliminando proyecto via ID
 router.delete('/:id',
+    auth,
     projectController.deleteProject
 );
 
