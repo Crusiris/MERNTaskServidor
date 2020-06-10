@@ -46,7 +46,7 @@ exports.getTask = async(req, res) => {
 
         try {
 
-            const { projectcreate } = req.body;
+            const { projectcreate } = req.query;
 
             //Verificando que el proyecto exista
             const existproject = await Project.findById(projectcreate);
@@ -61,7 +61,7 @@ exports.getTask = async(req, res) => {
                 return res.status(401).json({ msg: 'No autorizado' });
             }
 
-            const tasks = await Task.find({ projectcreate }).sort({ datecreate: -1 });
+            const tasks = await Task.find({ projectcreate }) //.sort({ datecreate: -1 });
             res.json({ tasks }); //Enviando la respuesta
 
         } catch (error) {

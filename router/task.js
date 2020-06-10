@@ -8,7 +8,8 @@ const { check } = require('express-validator'); //Importando funcion de validaci
 //Crear tarea al hacer peticion POST al ENDPOIND "api/tareas". LLamamos a la funcion que crea la tarea que esta en el controllador
 router.post('/',
     auth, [
-        check('name', 'El nombre de la tarea es obligatorio').not().isEmpty() //Revisando que el campo no este vacio
+        check('name', 'El nombre de la tarea es obligatorio').not().isEmpty(),
+        check('projectcreate', 'El nombre del proyecto es obligatorio').not().isEmpty() //Revisando que el campo no este vacio
         //Revisando que el campo no este vacio
     ],
 
