@@ -94,9 +94,9 @@ exports.updateTask = async(req, res) => {
         if (name) {
             newTask.name = name;
         }
-        if (state) {
-            newTask.state = state
-        }
+
+        newTask.state = state
+
 
         task = await Task.findOneAndUpdate({ _id: req.params.id }, newTask, { new: true });
         res.json({ task });
