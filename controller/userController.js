@@ -6,15 +6,15 @@ const jwt = require('jsonwebtoken');
 
 //Registrando usuario
 exports.createUser = async(req, res) => {
-
-    //Revisando si hay errores
+    console.log(req.body)
+        //Revisando si hay errores
     const errors = validationResult(req);
     if (!errors.isEmpty()) { //Si errores NO esta vacio entonces
         return res.status(400).json({ errores: errors.array() })
     }
 
     //Destructuring del req
-    const { name, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body;
 
     try {
 

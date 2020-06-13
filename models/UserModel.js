@@ -4,7 +4,12 @@ mongoose.set('useCreateIndex', true)
     //Funcion para definir el modelo o estructura del usuario en la base de datos
 const UsersSchema = mongoose.Schema({
 
-    name: {
+    firstName: {
+        type: String,
+        require: true,
+        trim: true //Eliminar espacios en blanco
+    },
+    lastName: {
         type: String,
         require: true,
         trim: true //Eliminar espacios en blanco

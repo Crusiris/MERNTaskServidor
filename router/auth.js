@@ -2,7 +2,6 @@
 const express = require('express'); //importando express
 const router = express.Router(); //importamos la funcion Router de express
 const authController = require('../controller/authController'); //importando controlador de auth
-const { check } = require('express-validator'); //Importando funcion de validación
 const auth = require('../middleware/auth');
 
 //autentificar [INICIAR SESION] usuario al hacer peticion POST al ENDPOIND 
