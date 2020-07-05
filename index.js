@@ -23,10 +23,10 @@ server.use('/api/proyectos', require('./router/projects')); //proyectos
 server.use('/api/tareas', require('./router/task')); //proyectos
 
 //Corriendo la app
-// server.listen(port, '0.0.0.0', () => {
-//     console.log(`El servidor esta funcionando en el puerto ${port}`);
-// })
-
-server.listen(port, () => {
-    console.log(`El servidor esta funcionando en el puerto aqui ${port}`);
+server.listen(port, '0.0.0.0', () => {
+    console.log(`El servidor esta funcionando en el puerto ${port}`);
 })
+
+// server.listen(port, () => {
+//     console.log(`El servidor esta funcionando en el puerto aqui ${port}`);
+// })
