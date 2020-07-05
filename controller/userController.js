@@ -8,10 +8,10 @@ const jwt = require('jsonwebtoken');
 exports.createUser = async(req, res) => {
     console.log(req.body)
         //Revisando si hay errores
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) { //Si errores NO esta vacio entonces
-        return res.status(400).json({ errores: errors.array() })
-    }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) { 
+    //     return res.status(400).json({ errores: errors.array() })
+    // }
 
     //Destructuring del req
     const { firstName, lastName, email, password } = req.body;

@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "mernTask",
+        "skipFiles": ["<node_internals>/**"],
+        "program": "${workspaceFolder}/index.js",
+        "envFile": "${workspaceRoot}/variables.env",
+        "trace": true,
+        "outputCapture": "std"
+      }
+    ]
+  }
